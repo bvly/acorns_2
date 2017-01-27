@@ -4,7 +4,11 @@ require 'yaml'
 
 describe EdmundsAPITest do
   before(:all) do
-    # Load API key from yaml
+    # Load API key from config.yml stored in lib directory.
+    # Inside the file should look like:
+    #
+    # key: yourapikeyhere
+    #
     @config = YAML.load_file("#{File.dirname(__FILE__)}/../lib/config.yml")
     @apiKey = @config['key']
     @ed = EdmundsAPITest.new(@apiKey)
